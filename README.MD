@@ -2,6 +2,11 @@
 
 A machine learning-powered skin condition analysis application built with Streamlit and TensorFlow. This app helps identify potential skin conditions through image analysis.
 
+## Video Demo
+
+Watch the complete project walkthrough and demonstration:  
+**[YouTube Demo](https://youtu.be/nnhMq1QnuOo)**
+
 ## Features
 
 - Image-based skin condition analysis
@@ -9,6 +14,7 @@ A machine learning-powered skin condition analysis application built with Stream
 - Interactive visualizations with matplotlib and seaborn
 - RESTful API with FastAPI
 - User-friendly web interface with Streamlit
+- Performance testing with Locust
 
 ## Prerequisites
 
@@ -58,9 +64,6 @@ pip install -r requirements.txt
 
 ### Running the Streamlit App
 
-There are two ways to run the application:
-
-**Standard command (if virtual environment is properly activated)**
 ```bash
 streamlit run app.py
 ```
@@ -69,11 +72,25 @@ The app will open in your default browser at `http://localhost:8501`
 
 ### Running the API Server
 
-If you have an API component:
-
 ```bash
 uvicorn api:app --reload
 ```
+
+The API will be available at `http://localhost:8000`
+
+### Running Performance Tests with Locust
+
+Create a `locustfile.py` in the project root, then run:
+
+```bash
+# With web UI
+locust -f locustfile.py --host=http://localhost:8501
+
+# Headless mode (50 users, 5/sec spawn rate, 2 min duration)
+locust -f locustfile.py --host=http://localhost:8501 --users 50 --spawn-rate 5 --run-time 2m --headless
+```
+
+Access the Locust web interface at `http://localhost:8089` to configure users and view real-time performance metrics.
 
 ### Running Tests
 
@@ -86,6 +103,7 @@ pytest
 ```
 dermai-scanner/
 ├── app.py              # Main Streamlit application
+├── locustfile.py       # Performance tests (optional)
 ├── requirements.txt    # Python dependencies
 ├── test/              # Virtual environment
 ├── models/            # Trained ML models (not in repo)
@@ -160,5 +178,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 - TensorFlow team for the ML framework
 - Streamlit for the amazing web app framework
-- [Add any other acknowledgments]
-```
+- HAM10000 dataset contributors
