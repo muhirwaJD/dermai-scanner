@@ -1,0 +1,58 @@
+# Virtual environments
+test/
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Data files (too large)
+data/
+*.csv
+
+# Model files (if too large, download separately)
+# models/*.keras
+# models/*.h5
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Environment files
+.env
+.env.local
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log

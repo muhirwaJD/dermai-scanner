@@ -1,0 +1,28 @@
+# Core ML (CPU-only for Docker)
+tensorflow==2.16.2
+keras==3.12.0
+numpy==1.26.4
+h5py==3.10.0
+
+# Web Framework
+streamlit==1.51.0
+
+# Data Processing
+pandas==2.3.3
+
+# Visualization
+matplotlib==3.10.7
+seaborn==0.13.2
+
+# Image Processing
+Pillow==12.0.0
+
+# Utilities
+protobuf==4.25.8
+requests==2.32.4
+python-dateutil==2.9.0.post0
+
+# Don't include:
+# - tensorflow-metal (Mac-specific)
+# - fastapi (unless using API)
+# - locust (unless testing in Docker)

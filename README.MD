@@ -24,6 +24,7 @@ Watch the complete project walkthrough and demonstration:
 - Python 3.10.14
 - macOS (for tensorflow-metal support) or other OS (remove tensorflow-metal from requirements)
 - pyenv (recommended for Python version management)
+- **OR** Docker & Docker Compose (for containerized deployment)
 
 ## Installation
 
@@ -65,7 +66,41 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Running the Streamlit App
+### 🐳 Docker Deployment (Recommended)
+
+**Quick Start:**
+
+```bash
+# Build and run with docker-compose
+docker-compose up -d
+
+# Access at http://localhost:8501
+
+# View logs
+docker-compose logs -f
+
+# Stop
+docker-compose down
+```
+
+**Or use Docker directly:**
+
+```bash
+# Build image
+docker build -t dermai-scanner:latest .
+
+# Run container
+docker run -p 8501:8501 \
+  -v $(pwd)/models:/app/models \
+  -v $(pwd)/data:/app/data \
+  dermai-scanner:latest
+```
+
+📖 **For detailed Docker instructions, see [DOCKER.md](DOCKER.md)**
+
+---
+
+### Running the Streamlit App (Local)
 
 ```bash
 streamlit run app.py
@@ -106,8 +141,13 @@ pytest
 ```
 dermai-scanner/
 ├── app.py              # Main Streamlit application
+├── Dockerfile          # Docker configuration
+├── docker-compose.yml  # Docker Compose configuration
+├── docker-commands.sh  # Helper script for Docker commands
+├── DOCKER.md          # Detailed Docker documentation
 ├── locustfile.py       # Performance tests (optional)
 ├── requirements.txt    # Python dependencies
+├── requirements-docker.txt  # Docker-specific dependencies
 ├── test/              # Virtual environment
 ├── models/            # Trained ML models (not in repo)
 ├── data/              # Training/test data (not in repo)
