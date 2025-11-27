@@ -2,6 +2,9 @@
 
 A machine learning-powered skin condition analysis application built with Streamlit and TensorFlow. This app helps identify potential skin conditions through image analysis.
 
+## Dataset  
+**[Dataset](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)**
+
 ## Video Demo
 
 Watch the complete project walkthrough and demonstration:  
